@@ -12,3 +12,16 @@ class Solution:
                     break
         return maxlen
     
+
+
+class Solution:
+    def longestsubstring(self,s):
+        dic={}
+        left=0
+        maxlen=0
+        for right,ch in enumerate(s):
+            if ch in dic and dic[ch]>=left:
+                left =dic[ch]+1
+            dic[ch]=right
+            maxlen=max(maxlen,right-left+1)
+        return maxlen
